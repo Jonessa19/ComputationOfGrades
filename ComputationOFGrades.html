@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computation of Grades</title>
+
+    <style>
+    body{
+
+      background-color: blueviolet;
+      border: 2px solid green;
+      position: center;
+      text-align: center;
+      width: 100%;
+  }
+  h1{
+      text-align: center;
+      color: rebeccapurple;
+  }
+  
+  #design{
+      height: 100vh;
+      width: 100%;
+      background: linear-gradient(45deg, rgb);
+      background-size: 300%;
+  }
+</style>
+
+</head>
+<body>
+   <section>
+      <table>
+         <tbody>
+            <thead>
+               <h1>Computation of Grades</h1>
+    <td><h2>Written Tasks (Quizzes)</h2>
+    <label for="quiz1">Quiz 1:</label>
+    <input type="number" id="quiz1" value="45"><br><br>
+    <label for="quiz2">Quiz 2:</label>
+    <input type="number" id="quiz2" value="30"><br><br>
+    <label for="quiz3">Quiz 3:</label>
+    <input type="number" id="quiz3" value="25"><br><br>
+    <button onclick="computeQuizzes()">Compute Quizzes Total</button>
+    <p id="quizTotal">Total Quizzes Score: </p></td>
+    <hr>
+
+    <td><h2>Performance Tasks</h2>
+    <label for="pt1">Performance Task 1:</label>
+    <input type="number" id="pt1" value="30"><br><br>
+    <label for="pt2">Performance Task 2:</label>
+    <input type="number" id="pt2" value="28"><br><br>
+    <label for="pt3">Performance Task 3:</label>
+    <input type="number" id="pt3" value="20"><br><br>
+    <button onclick="computePerformanceTasks()">Compute Performance Tasks Total</button>
+    <p id="ptTotal">Total Performance Tasks Score: </p></td>
+    <hr>
+
+    <td><h2>Periodical Exam</h2>
+    <label for="exam">Exam Score:</label>
+    <input type="number" id="exam" value="85"><br><br>
+    <button onclick="computeExam()">Compute Exam Score</button>
+    <p id="examTotal">Exam Score: </p></td>
+      <hr>
+
+    <td>
+    <h2>Final Grade</h2>
+    <button onclick="computeFinalGrade()">Compute Final Grade</button>
+    <p id="finalGrade">Final Grade: </p>
+
+    <script>function computeQuizzes() {
+      const quiz1 = parseFloat(document.getElementById('quiz1').value);
+      const quiz2 = parseFloat(document.getElementById('quiz2').value);
+      const quiz3 = parseFloat(document.getElementById('quiz3').value);
+      const totalQuizzes = (quiz1 + quiz2 + quiz3) / 3;
+      document.getElementById('quizTotal').innerText = "Total Quizzes Score: " + totalQuizzes.toFixed(2);
+      return totalQuizzes * 0.20;
+  }
+  
+  function computePerformanceTasks() {
+      const pt1 = parseFloat(document.getElementById('pt1').value);
+      const pt2 = parseFloat(document.getElementById('pt2').value);
+      const pt3 = parseFloat(document.getElementById('pt3').value);
+      const totalPerformance = (pt1 + pt2 + pt3) / 3;
+      document.getElementById('ptTotal').innerText = "Total Performance Tasks Score: " + totalPerformance.toFixed(2);
+      return totalPerformance * 0.60;
+  }
+  
+  function computeExam() {
+      const exam = parseFloat(document.getElementById('exam').value);
+      document.getElementById('examTotal').innerText = "Exam Score: " + exam.toFixed(2);
+      return exam * 0.20;
+  }
+  
+  function computeFinalGrade() {
+      const quizzesScore = computeQuizzes();
+      const performanceScore = computePerformanceTasks();
+      const examScore = computeExam();
+      const finalGrade = quizzesScore + performanceScore + examScore;
+      document.getElementById('finalGrade').innerText = "Final Grade: " + finalGrade.toFixed(2);
+  }
+  </script></td>
+            </thead>
+         </tbody>
+      </table>
+   </section>
+    
+    Created by: Jonessa Cantiga and Judelyn Cantiga
+
+</body>
+</html>
